@@ -1,0 +1,25 @@
+<h1>Country List</h1>
+
+<div *ngFor="let country of displayTenCountry" >
+  <a href="#" (click)="getCountry(country)">{{country.name}}</a>
+</div>
+<button (click)=showLess() *ngIf="showLessBtn">Show Less</button>
+<button (click)="showMore()" *ngIf="showMoreBtn">Show More</button>
+
+<div *ngIf="showInput">
+  <h4>Please Add your Country</h4>
+  <input type="text" [(ngModel)] ="country"/> 
+  <button (click)="addUser()">Add</button>
+</div>
+
+
+<p *ngIf="selectedCountryP"><button (click)="seeSelectedCountry()">Click Here to see selected country.</button></p>
+
+
+<div *ngIf="selectedCountry">
+  <app-added-country [countryData]="userSelectedCountry"></app-added-country>
+</div>
+
+<router-outlet></router-outlet>
+
+
